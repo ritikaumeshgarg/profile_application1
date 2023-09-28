@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Application</title>
+    <style>
+        /* Internal CSS for basic styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .profile-card {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            max-width: 300px;
+            width: 100%;
+            border-radius: 5px;
+            margin: 10px;
+        }
+
+        .profile-card img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Add more CSS for map and other components here */
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Profile Application</h1>
+    </header>
+
+    <main>
+        <!-- Profile cards will be added here dynamically using JavaScript -->
+    </main>
+
+    <script>
+        // Internal JavaScript for profile display and basic functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const mainContainer = document.querySelector('main');
+
+            // Sample profile data (you would fetch this from a database)
+            const profiles = [
+                {
+                    name: 'Narendra Modi',
+                    description: 'Prime Minister',
+                    address: '123 Main St, City, Country',
+                    image: 'profile1.jpg', // Add the path to your image
+                    summaryLink: 'n1.html', // Add the URL to the summary page
+                },
+                {
+                    name: 'Droupadi Murmu',
+                    description: 'President',
+                    address: '456 Elm St, City, Country',
+                    image: 'profile2.jpg', // Add the path to your image
+                    summaryLink: 'n2.html', // Add the URL to the summary page
+                },
+                {
+                    name: 'Eknath Shinde',
+                    description: 'Chief Minister',
+                    address: '456 Elm St, City, Country',
+                    image: 'profile3.jpg', // Add the path to your image 
+                    summaryLink: 'n3.html', // Add the URL to the summary page
+                }
+            ];
+             
+            // Function to display a profile
+            function displayProfile(profile) {
+                const profileCard = document.createElement('div');
+                profileCard.className = 'profile-card';
+                profileCard.innerHTML = `
+                    <img src="${profile.image}" alt="${profile.name}">
+                    <h2>${profile.name}</h2>
+                    <p>${profile.description}</p>
+                    <button title="${profile.summary}" onclick="window.location.href='${profile.summaryLink}'">Summary</button>
+                `;
+                mainContainer.appendChild(profileCard);
+            }
+
+            // Loop through and display profiles
+            profiles.forEach(displayProfile);
+        });
+    </script>
+</body>
+</html>
